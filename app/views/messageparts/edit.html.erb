@@ -1,0 +1,6 @@
+<h1>Edit Content Part</h1>
+<%= simple_form_for([@message, @messagepart]) do |f| %>
+<%= f.input :contentparttitle, label: "Title" %>
+<%= f.input :contentpart, label: "Content Part" %>
+<%= f.button :submit %>
+<% end %>

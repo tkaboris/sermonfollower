@@ -1,0 +1,17 @@
+<div class="comment">
+  <p class="comment-content"><%= messagepart.contentparttitle %></p>
+  <p class="comment-content"><%= messagepart.contentpart %></p>
+
+    <div class="links">
+      <% if speaker_signed_in? %>
+        <% if messagepart.speaker_id == current_speaker.id %>
+
+          <%= link_to "Edit", edit_message_messagepart_path(messagepart.message, messagepart) %>
+          <%= link_to "Delete", message_messagepart_path(messagepart.message, messagepart), method: :delete, data: { confirm: "Are you sure?" } %>
+          <!-- # first argument /messagepart.message gets /messageparts3
+          # messagepart gets /messagepart/1
+           -->
+        <% end %>
+      <% end %>
+    </div>
+</div>
