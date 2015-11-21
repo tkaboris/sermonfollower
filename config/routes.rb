@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :listeners
   devise_for :speakers
   resources :messages do
     resources :messageparts
