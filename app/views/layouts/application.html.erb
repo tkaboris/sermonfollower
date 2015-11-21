@@ -23,6 +23,7 @@
 
     </ul>
     <% if listener_signed_in? %>
+      <p><%= link_to "Edit Account", edit_listener_registration_path %>
       <p><%= link_to "sign out", destroy_listener_session_path, class: "navbar-right navbar-text navbar-link" %></p>
     <% end %>
     <% if speaker_signed_in? %>

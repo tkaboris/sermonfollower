@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :listeners
+  devise_for :listeners, :controllers => { :registrations => "registrations" }
   devise_for :speakers
   resources :messages do
     resources :messageparts

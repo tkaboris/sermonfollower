@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151120213741) do
+ActiveRecord::Schema.define(version: 20151121060359) do
 
   create_table "listeners", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -30,6 +30,13 @@ ActiveRecord::Schema.define(version: 20151120213741) do
 
   add_index "listeners", ["email"], name: "index_listeners_on_email", unique: true
   add_index "listeners", ["reset_password_token"], name: "index_listeners_on_reset_password_token", unique: true
+
+  create_table "listeners_speakers", force: :cascade do |t|
+    t.integer  "listener_id"
+    t.integer  "speaker_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "messageparts", force: :cascade do |t|
     t.text     "contentpart"
