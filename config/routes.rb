@@ -4,13 +4,16 @@ Rails.application.routes.draw do
 
   devise_for :listeners, :controllers => { :registrations => "registrations" }
 
+
   devise_for :speakers
+  resources :speakers, only: [:show]
+
   resources :messages do
     resources :messageparts
   end
 
-  # root 'pages#home'
-  root 'messages#index'
+  root 'pages#home'
+  # root 'messages#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

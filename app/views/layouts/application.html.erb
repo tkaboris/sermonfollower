@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sermonfollower</title>
+  <title>Message Follower</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -10,10 +10,62 @@
 <div class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
-      <%= link_to "Message Board", root_path, class: "navbar-brand" %>
-    </div>
-    <ul class="nav navbar-nav">
-      <li><%= link_to "Sign Up", new_speaker_registration_path %>
+      <%= link_to "Message Follower", root_path, class: "navbar-brand" %>
+</div>
+    <% if speaker_signed_in? %>
+      <button type="button" class="btn btn-secondary" >
+        <%= link_to "New Message", new_message_path %>
+      </button>
+    <% end %>
+
+
+
+<!--  top navigation-->
+
+
+
+<div class="btn-group pull-right">
+  <button type="button" class="btn btn-default  dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Listener <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+
+    <% if listener_signed_in? %>
+      <li><%= link_to "Edit Account", edit_listener_registration_path %></li>
+      <li><%= link_to "Sign out", destroy_listener_session_path,  :method => :delete %></li>
+      <% else %>
+      <li><%= link_to "Log In", new_listener_session_path %></li>
+      <li><%= link_to "Sign Up", new_listener_registration_path %></li>
+    <% end %>
+
+  </ul>
+</div>
+<div class="btn-group pull-right">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Speaker <span class="caret"></span>
+  </button>
+
+
+  <ul class="dropdown-menu">
+    <% if speaker_signed_in? %>
+      <li><%= link_to "Edit Account", edit_speaker_registration_path %></li>
+      <li><%= link_to "Sign out", destroy_speaker_session_path,  :method => :delete %></li>
+    <% else %>
+      <li><%= link_to "Log In", new_speaker_session_path %></li>
+      <li><%= link_to "Sign Up", new_speaker_registration_path %></li>
+    <% end %>
+  </ul>
+</div>
+
+
+
+</div>
+<!--  -->
+
+    <!-- <ul class="nav navbar-nav">
+      <li><%= link_to "Speaker", new_speaker_registration_path %>
+      </li>
+      <li><%= link_to "New Listener", new_listener_registration_path %>
       </li>
       <% if speaker_signed_in? %>
         <li><%= link_to "Sign Out", destroy_speaker_session_path, method: :delete %></li>
@@ -29,8 +81,9 @@
     <% end %>
     <% if speaker_signed_in? %>
       <p><%= link_to "Create new Message", new_message_path, class: "navbar-right navbar-text navbar-link" %></p>
+      <p><%= link_to "Edit Account", edit_speaker_registration_path, class: "navbar navbar-text navbar-link" %>
     <% end %>
-  </div>
+  </div> -->
 
 </div>
 

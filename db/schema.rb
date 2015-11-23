@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151121060359) do
+ActiveRecord::Schema.define(version: 20151122060814) do
 
   create_table "listeners", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 20151121060359) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "name"
+    t.string   "lastname"
   end
 
   add_index "listeners", ["email"], name: "index_listeners_on_email", unique: true
@@ -72,6 +74,8 @@ ActiveRecord::Schema.define(version: 20151121060359) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "name"
+    t.string   "lastname"
   end
 
   add_index "speakers", ["email"], name: "index_speakers_on_email", unique: true

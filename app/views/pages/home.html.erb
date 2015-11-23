@@ -1,51 +1,27 @@
-<h2>Latest Messages</h2>
-
+<div class="container">
 
 <ul class="nav nav-tabs">
-  <li role="presentation" class="active"><a href="#">Latest Speakers</a>
-  <%= @speakers %>
-  </li>
-
-  <li role="presentation"><a href="#">Latest Sermons</a>
-
-    <% @messages.each do |message| %>
-  <div class="col-md-10">
-    <div >
-      <h2 >
-      <%= link_to message.title, message_path(message) %>
-      </h2>
-    </div>
-
-  </div>
-<% end %>
-  </li>
+        <li class="active"><a data-toggle="tab" href="#sectionA">All Speakers</a></li>
+        <li><a data-toggle="tab" href="#sectionB">All Messages</a></li>
 
 </ul>
+    <div class="tab-content">
+        <div id="sectionA" class="tab-pane fade in active">
+            <h3>Speakers</h3>
+              <% @speakers.each do |speaker| %>
+              <p><%= link_to speaker.name, speaker_path(speaker) %></p>
+
+            <% end %>
+
+        </div>
+        <div id="sectionB" class="tab-pane fade">
+            <h3>Messages</h3>
+            <% @messages.each do |message| %>
+            <p><%= link_to message.title, message_path(message) %></p>
+            <% end %>
+        </div>
 
 
-
-
-<div class="row">
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="..." alt="...">
-      <div class="caption">
-        <h3>Thumbnail label</h3>
-        <p>...</p>
-        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-      </div>
     </div>
-  </div>
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="..." alt="...">
-      <div class="caption">
-        <h3>Thumbnail label</h3>
-        <p>...</p>
-        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-      </div>
-    </div>
-  </div>
 </div>
-
 

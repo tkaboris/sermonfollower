@@ -9,7 +9,7 @@
     <%= render @message.messageparts %>
 <!-- Add conditional so taht the edit and destory links only apear for th user how created -->
     <div class="links btn-group">
-<%= link_to "Back", root_path, class: "btn btn-default" %><br>
+<%= link_to "Back", messages_path, class: "btn btn-default" %><br>
       <% if speaker_signed_in? %>
 
         <% if @message.speaker_id == current_speaker.id %>
