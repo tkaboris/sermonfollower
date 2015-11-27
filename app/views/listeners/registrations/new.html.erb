@@ -4,8 +4,12 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :speakers, label_method: :email, value_method: :id %>
+<<<<<<< HEAD
 
+
+=======
+    <%= f.association :speakers, as: :check_boxes, label_method: :email, value_method: :id %>
+>>>>>>> 0b28386d0afcdbc62632f4186b79001b1e71f4fb
     <%= f.input :name, required: true, autofocus: true %>
     <%= f.input :lastname, required: true, autofocus: true %>
     <%= f.input :email, required: true, autofocus: true %>
