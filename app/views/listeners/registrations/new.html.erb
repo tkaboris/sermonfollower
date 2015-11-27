@@ -5,6 +5,7 @@
 
   <div class="form-inputs">
     <%= f.association :speakers, label_method: :email, value_method: :id %>
+
     <%= f.input :name, required: true, autofocus: true %>
     <%= f.input :lastname, required: true, autofocus: true %>
     <%= f.input :email, required: true, autofocus: true %>
