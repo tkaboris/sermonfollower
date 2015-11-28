@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   devise_for :speakers
   resources :speakers, only: [:show]
+  resources :listeners_speakers
 
   resources :messages do
     resources :messageparts
