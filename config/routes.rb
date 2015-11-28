@@ -6,7 +6,11 @@ Rails.application.routes.draw do
 
 
   devise_for :speakers
-  resources :speakers, only: [:show]
+  resources :speakers, only: [:show] do
+    member do
+      get 'subscribe'
+    end
+  end
 
   resources :messages do
     resources :messageparts
