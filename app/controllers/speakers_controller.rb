@@ -14,7 +14,11 @@ class SpeakersController < ApplicationController
     @speaker = Speaker.new
   end
 
+  #Subscribe speaker
   def subscribe
+    #Assign speaker to listner
+    #and checking listener is already subscribed to speaker
+    #If listener is already subscribed to speaker then else block will execute
     if current_listener.assign_speaker(params[:id])
       redirect_to root_path, notice: "Successfully subscribed to speaker"
     else
