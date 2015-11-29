@@ -22,8 +22,11 @@ class Listener < ActiveRecord::Base
     end
   end
 
-  #Checking speaker is already assigned to listner or not
-  #it will return true or false
+    #Checking speaker is already assigned to listner or not
+   #it will return true or false
+     #That line will be same as self.speakers.where(id: id)
+    #here id is the id of spearker that will check that this id is present or not in self.speakers
+    #self will be object of listener
   def speaker_exist?(id)
     speakers.where(id: id).present?
   end

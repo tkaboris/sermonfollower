@@ -1,5 +1,8 @@
-<%= simple_form_for([@message, @message.messageparts.build]) do |f| %>
+
+<%= simple_form_for([@message, @message.messageparts.build], html: { multipart: true } ) do |f| %>
+
 <%= f.input :contentparttitle, label: "Part Title" %>
 <%= f.input :contentpart, label: "Content Part" %>
+<%= f.file_field :picture %>
 <%= f.button :submit, label: "Add Parts", :class => 'btn-custom' %>
 <% end %>

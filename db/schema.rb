@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151122060814) do
+ActiveRecord::Schema.define(version: 20151128170406) do
 
   create_table "listeners", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20151122060814) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.string   "contentparttitle"
+    t.string   "picture"
   end
 
   add_index "messageparts", ["message_id"], name: "index_messageparts_on_message_id"
@@ -59,6 +60,7 @@ ActiveRecord::Schema.define(version: 20151122060814) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "speaker_id"
+    t.string   "picture"
   end
 
   create_table "speakers", force: :cascade do |t|

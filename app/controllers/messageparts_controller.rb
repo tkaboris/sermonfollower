@@ -3,6 +3,7 @@ class MessagepartsController < ApplicationController
   before_action :find_messagepart, only: [:edit, :update, :destroy]
   # before_action :authenticate_speaker!, except: [:index, :show]
   before_action :authenticate_speaker!
+
   def create
     # @message = Message.find(params[:message_id])
     @messagepart = @message.messageparts.create(messagepart_params)
@@ -35,11 +36,12 @@ class MessagepartsController < ApplicationController
 
   private
     def messagepart_params
-      params.require(:messagepart).permit(:contentparttitle, :contentpart)
+      params.require(:messagepart).permit(:contentparttitle, :contentpart, :picture)
     end
 
     def find_message
       @message = Message.find(params[:message_id])
+
     end
 
     def find_messagepart

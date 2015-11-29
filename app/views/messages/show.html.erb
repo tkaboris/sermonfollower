@@ -4,6 +4,9 @@
     <p class="message-posted-by">Posted by <%= @message.speaker.email %> <%= time_ago_in_words(@message.created_at) %> ago</p>
     <p class="message-desc"><%= @message.description %></p>
     <p class="message-desc"><%= @message.content %></p>
+    <p>
+      <%= image_tag(@message.picture.url, size: "250x150", class: "gravatar") if @message.picture? %>
+    </p>
 
     <h3 class="reply-to-msg">Content Parts:</h3>
     <%= render @message.messageparts %>
