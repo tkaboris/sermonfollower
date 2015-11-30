@@ -4,10 +4,10 @@ class RegistrationsController < Devise::RegistrationsController
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :lastname, :email, :password, :speaker_ids => []) }
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :lastname, :email, :password, :organization_name, :speaker_ids => []) }
     # devise_parameter_sanitizer.for(:account_update).push(:speaker_ids => [])
     # devise_parameter_sanitizer.for(:account_update).push(:speaker_ids => []) { |u| u.permit(:name, :lastname, :email, :password, :current_password) }
-    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :lastname, :email, :password, :current_password, :speaker_ids => [])}
+    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :lastname, :email, :password, :current_password, :organization_name, :speaker_ids => [])}
 
 
   end
