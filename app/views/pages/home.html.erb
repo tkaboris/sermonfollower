@@ -7,18 +7,36 @@
 </ul>
     <div class="tab-content">
         <div id="sectionA" class="tab-pane fade in active">
-            <h3>Speakers</h3>
+<hr/>
+
               <% @speakers.each do |speaker| %>
-              <p><%= link_to speaker.name, speaker_path(speaker) %></p>
+              <div><%= gravatar_for speaker, size: 100 %>
+            <h3><%= link_to speaker.name, speaker_path(speaker) %></h3>
+            </div>
+
 
             <% end %>
 
         </div>
         <div id="sectionB" class="tab-pane fade">
-            <h3>Messages</h3>
+<hr/>
+
             <% @messages.each do |message| %>
-            <p><%= link_to message.title, message_path(message) %></p>
+            <!-- <div><%= gravatar_for message.speaker, size: 100 %>
+            <h3>Speaker Name: <%= message.speaker.name %></h3>
+            </div> -->
+              <div class="col-md-4">
+                <div class="message">
+                  <h2 class="message-title"> <%= message.title %> </h2>
+                  <%= link_to "View Message", message_path(message), class: "btn btn-default" %>
+                </div>
+
+              </div>
+
             <% end %>
+
+
+
         </div>
 
 

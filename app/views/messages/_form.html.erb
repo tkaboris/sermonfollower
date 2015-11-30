@@ -1,7 +1,7 @@
 <%= simple_form_for @message, html: { multipart: true }  do |f| %>
   <%= f.input :title, label: "Message Title"  %>
   <%= f.input :description, label: "Short Description" %>
-  <%= f.input :content %>
+  <%= f.input :content, :as => :text, :input_html => { 'rows' => 10} %>
   <%= f.file_field :picture %>
   <%= f.button :submit %>
 <% end %>

@@ -10,7 +10,11 @@
 <div class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
+      <% if speaker_signed_in? %>
+      <%= link_to "Message Follower", messages_path, class: "navbar-brand" %>
+      <% else %>
       <%= link_to "Message Follower", root_path, class: "navbar-brand" %>
+      <% end %>
 </div>
     <% if speaker_signed_in? %>
       <button type="button" class="btn btn-secondary" >
@@ -48,6 +52,7 @@
 
   <ul class="dropdown-menu">
     <% if speaker_signed_in? %>
+      <li><%= link_to "View Profile", speaker_path(current_speaker) %></li>
       <li><%= link_to "Edit Account", edit_speaker_registration_path %></li>
       <li><%= link_to "Sign out", destroy_speaker_session_path,  :method => :delete %></li>
     <% else %>

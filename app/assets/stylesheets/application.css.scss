@@ -154,6 +154,19 @@ h1, h2, h3, h4, h5, h6 {
 
 }
 
+.messagepart-form {
+  box-sizing: border-box;
+  background-color: #383838;
+  padding: 2.0em 1.5em;
+  border-bottom: 4px solid #0a8fd5;
+  color: #fff;
+  font-family: 'Muli', sans-serif;
+  font-weight: 300;
+  }
+
+  textarea {
+    max-width: 100%;
+  }
 
 /* Comment styles */
 

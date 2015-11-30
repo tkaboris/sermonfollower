@@ -8,6 +8,8 @@ class SpeakersController < ApplicationController
 
   def show
     @speaker = Speaker.find(params[:id])
+    @speakers = Speaker.all
+    @messages = @speaker.messages.all
 
   end
 
