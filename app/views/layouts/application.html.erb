@@ -22,6 +22,28 @@
       </button>
     <% end %>
 
+    <ul class="navbar-link">
+      <li class="dropdown">
+        <%= link_to '#', class: "btn btn-default dropdown-toggle", "data-toggle" => "dropdown" do %>
+          Category <b class="caret"></b>
+          <% end %>
+          <ul class="dropdown-menu">
+            <% Category.all.each do |category| %>
+              <li> <%= link_to category.name, category_path(category) %></li>
+            <% end %>
+            <% if speaker_signed_in? %>
+              <li class="divider"></li>
+              <li>
+                <%= link_to(new_category_path) do %>
+                  New Category
+                <% end %>
+              </li>
+
+            <% end %>
+          </ul>
+      </li>
+    </ul>
+
 
 
 <!--  top navigation-->

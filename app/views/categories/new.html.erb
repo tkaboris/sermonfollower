@@ -1,2 +1,10 @@
-<h2>Create new category</h2>
-<%= render 'form' %>
+<%= render 'shared/page_title', title: "Create New Category" %>
+<%= render 'shared/errors', obj: @category %>
+<%= simple_form_for @category do |f| %>
+  <%= f.input :name, label: "Category Name"  %>
+
+
+
+  <%= f.button :submit, class: "btn btn-success" %>
+<% end %>
+
