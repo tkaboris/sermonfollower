@@ -5,9 +5,6 @@
 
   <div class="form-inputs">
 
-
-
-
     <%= f.association :speakers, as: :check_boxes, label_method: :email, value_method: :id %>
 
     <%= f.input :name, required: true, autofocus: true %>
@@ -15,6 +12,22 @@
     <%= f.input :email, required: true, autofocus: true %>
     <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
     <%= f.input :password_confirmation, required: true %>
+
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <%= f.label :time_zone %>
+          <%= f.time_zone_select(:time_zone, ActiveSupport::TimeZone.all, { default: :UTC }, { class: "form-control"}) %>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="form-group">
+          <%= f.label "Recieve message at hour (HH)" %>
+          <%= f.select(:recieve_message_at, (00..23).map{ |i| [format('%02d', i),format('%02d', i)] }, {}, { class: "form-control" } ) %>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <div class="form-actions">

@@ -1,5 +1,10 @@
 <%= simple_form_for([@message, @message.messageparts.build]) do |f| %>
-<%= f.input :contentparttitle, label: "Part Title" %>
-<%= f.input :contentpart, label: "Content Part" %>
-<%= f.button :submit, label: "Add Parts", :class => 'btn-custom' %>
+  <%= f.input :contentparttitle, label: "Part Title" %>
+  <%= f.input :contentpart, label: "Content Part" %>
+  <%= f.input :send_at, :as => :date_picker, input_html: {data: {date_options: {defaultDate: @message.message_part_default_date, minDate: @message.send_at.to_date }}} %>
+  <%= f.input :image, label: "Attach image" %>
+  <i class="glyphicon glyphicon-camera glyphicon-2x" id="msgpart_camera_icon"></i>
+  <%= image_tag "", size: "100x100", id: "msgpart_attached_image" %><br/>
+  <%= f.input :part_no, as: :hidden, input_html: { value: @message.msg_part_no } %>
+  <%= f.button :submit, label: "Add Parts", :class => 'btn-custom' %>
 <% end %>

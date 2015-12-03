@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap-datetimepicker.min
  */
 
 @import url(http://fonts.googleapis.com/css?family=Playfair+Display|Muli:300,400);
@@ -37,6 +38,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
   border-radius: 8px;
   padding: 10px 20px;
+  margin-bottom: 30px;
   &:hover {
     color: #383838;
     transition: 0.5s;
@@ -122,6 +124,22 @@ h1, h2, h3, h4, h5, h6 {
   clear: left;
 }
 
+#message_image{
+  display: none;
+}
+
+#msg_camera_icon{
+  margin-top: -50px;
+  padding-left: 5px;
+  margin-bottom: 20px;
+}
+
+#attached_image{
+  margin-bottom: 20px;
+  margin-left: 50px;
+}
+
+
 /* Message show-page styles */
 
 .message-show {
@@ -151,7 +169,39 @@ h1, h2, h3, h4, h5, h6 {
   .reply-to-msg {
     margin-top: 50px;
   }
+}
 
+
+/* datetimepicker style */
+.datetimepicker {
+  font-family: 'Segoe UI';
+  color: #333;
+}
+.datetimepicker input {
+  font-family: 'Segoe UI';
+  font-size: 14px;
+  font-stretch: normal;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 300;
+}
+
+
+/* messagepart style */
+
+#messagepart_image{
+  display: none;
+}
+
+#msgpart_camera_icon{
+  margin-top: -50px;
+  padding-left: 5px;
+  margin-bottom: 20px;
+}
+
+#msgpart_attached_image{
+  margin-bottom: 20px;
+  margin-left: 50px;
 }
 
 
@@ -178,4 +228,32 @@ h1, h2, h3, h4, h5, h6 {
       margin-right: 15px;
     }
   }
+}
+
+/* Zoom glyphicon */
+
+.glyphicon-2x{
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* datepicker style */
+
+.datetimepicker{
+  width: 170px;
+
+}
+
+/* listener style */
+
+.form-actions{
+  margin-top: 20px;
+}
+
+#listener_time_zone{
+  width: 350px;
+}
+
+#listener_recieve_message_at{
+  width: 100px;
 }

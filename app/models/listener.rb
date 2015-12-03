@@ -8,4 +8,5 @@ class Listener < ActiveRecord::Base
   has_many :listeners_speakers, class_name: 'ListenersSpeakers'
   has_many :speakers, through: :listeners_speakers
 
+  validates_presence_of :time_zone
 end

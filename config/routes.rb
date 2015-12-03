@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-
-
+  require "sidekiq/web"
+  #this is to open sidekiq console, in production env need to set env vars, and for other envs it will not ask auth
+  Sidekiq::Web.use Rack::Auth::Basic do |username, password|
+    username == ENV["SIDEKIQ_USERNAME"] && password == ENV["SIDEKIQ_PASSWORD"]
+  end if Rails.env.production?
+  mount Sidekiq::Web, at: "/sidekiq"
 
   devise_for :listeners, :controllers => { :registrations => "registrations" }
 

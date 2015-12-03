@@ -4,18 +4,20 @@
     <p class="message-posted-by">Posted by <%= @message.speaker.email %> <%= time_ago_in_words(@message.created_at) %> ago</p>
     <p class="message-desc"><%= @message.description %></p>
     <p class="message-desc"><%= @message.content %></p>
+    <p class="message-desc">Send at: <%= @message.send_at.strftime("%d/%m/%Y") %></p>
+    <p class="message-desc"><%= image_tag @message.attached_img, size: "100x100" if @message.image? %></p>
 
     <h3 class="reply-to-msg">Content Parts:</h3>
     <%= render @message.messageparts %>
-<!-- Add conditional so taht the edit and destory links only apear for th user how created -->
+    <!-- Add conditional so taht the edit and destory links only apear for th user how created -->
     <div class="links btn-group">
-<%= link_to "Back", messages_path, class: "btn btn-default" %><br>
+      <%= link_to "Back", messages_path, class: "btn btn-default" %><br>
       <% if speaker_signed_in? %>
 
         <% if @message.speaker_id == current_speaker.id %>
-        <h3>Add More Content Parts</h3>
+          <h3>Add More Content Parts</h3>
 
-      <%= render 'messageparts/form' %>
+          <%= render 'messageparts/form' %>
           <%= link_to "Edit", edit_message_path(@message), class: "btn btn-default" %>
           <%= link_to "Delete", message_path(@message), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %>
         <% end %>

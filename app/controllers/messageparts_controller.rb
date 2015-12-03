@@ -35,7 +35,7 @@ class MessagepartsController < ApplicationController
 
   private
     def messagepart_params
-      params.require(:messagepart).permit(:contentparttitle, :contentpart)
+      params.require(:messagepart).permit(:contentparttitle, :contentpart, :send_at, :image, :part_no)
     end
 
     def find_message

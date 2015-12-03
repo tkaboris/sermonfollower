@@ -23,7 +23,21 @@ gem 'devise', '~> 3.5', '>= 3.5.2'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+# provides a clear syntax for writing and deploying cron jobs.
+gem 'whenever', :require => false
+# Simple, efficient background processing
+gem 'sidekiq'
+gem 'sinatra', :require => nil
 
+#this is manage env vars
+gem 'figaro'
+
+#dependency for datetimepicker-rails
+gem 'momentjs-rails', '~> 2.9', :github => 'derekprior/momentjs-rails'
+# A date and time picker for Twitter Bootstrap in Rails using Simple Form
+gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
+# Easy file attachment management for ActiveRecord
+gem "paperclip", "~> 4.3"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -43,14 +57,12 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-
+  gem 'pry'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
 
 group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
-
-end
-

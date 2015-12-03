@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151122060814) do
+ActiveRecord::Schema.define(version: 20151204152450) do
 
   create_table "listeners", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -24,10 +24,16 @@ ActiveRecord::Schema.define(version: 20151122060814) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
     t.string   "lastname"
+    t.string   "time_zone"
+    t.string   "recieve_message_at"
   end
 
   add_index "listeners", ["email"], name: "index_listeners_on_email", unique: true
@@ -44,9 +50,16 @@ ActiveRecord::Schema.define(version: 20151122060814) do
     t.text     "contentpart"
     t.integer  "message_id"
     t.integer  "speaker_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "contentparttitle"
+    t.datetime "delivered_at"
+    t.datetime "send_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer  "part_no"
   end
 
   add_index "messageparts", ["message_id"], name: "index_messageparts_on_message_id"
@@ -56,9 +69,15 @@ ActiveRecord::Schema.define(version: 20151122060814) do
     t.string   "title"
     t.string   "description"
     t.text     "content"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.integer  "speaker_id"
+    t.datetime "delivered_at"
+    t.datetime "send_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "speakers", force: :cascade do |t|

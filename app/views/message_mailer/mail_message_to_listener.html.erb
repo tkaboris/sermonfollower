@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h3>Hi <%= @listener.name %>, </h3>
+    <p><%= @message.speaker.name %> has sent a message for you.</p><br/>
+    <h3 style="color: #000;">Description: <strong style="font-size: 12px; color: #444;"><%= @message.description %></strong></h3><hr/>
+    <p style="font-size: 12px;"><%= @message.content %></p><br/>
+  </body>
+</html>

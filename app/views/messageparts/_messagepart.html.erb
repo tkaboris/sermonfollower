@@ -1,6 +1,8 @@
 <div class="comment">
   <p class="comment-content"><%= messagepart.contentparttitle %></p>
   <p class="comment-content"><%= messagepart.contentpart %></p>
+  <p class="comment-content">Send at: <%= messagepart.send_at.strftime("%d/%m/%Y") %></p>
+  <p class="comment-content"><%= image_tag messagepart.attached_img, size: "100x100" if messagepart.image? %></p>
 
     <div class="links">
       <% if speaker_signed_in? %>

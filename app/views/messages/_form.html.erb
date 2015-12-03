@@ -2,5 +2,9 @@
   <%= f.input :title, label: "Message Title"  %>
   <%= f.input :description, label: "Short Description" %>
   <%= f.input :content %>
-  <%= f.button :submit %>
+  <%= f.input :send_at, :as => :date_picker, input_html: { data: {date_options: { defaultDate: @message.default_date, minDate: @message.default_date }}} %>
+  <%= f.input :image, label: "Attach image" %>
+  <i class="glyphicon glyphicon-camera glyphicon-2x" id="msg_camera_icon"></i>
+  <%= image_tag @message.attached_img, size: "100x100", id: "attached_image" %><br/>
+  <%= f.button :submit, style: "margin-bottom: 80px" %>
 <% end %>
