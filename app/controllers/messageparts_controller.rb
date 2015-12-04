@@ -27,11 +27,16 @@ class MessagepartsController < ApplicationController
     else
       render 'edit'
     end
+
+
+
   end
 
   def destroy
     @messagepart.destroy
     redirect_to message_path(@message)
+
+
   end
 
   private
