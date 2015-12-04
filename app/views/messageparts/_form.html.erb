@@ -3,12 +3,7 @@
 <%= f.input :contentparttitle, label: "Part Title" %>
 <%= f.input :contentpart, label: "Content Part", :as => :text, input_html: { :rows => 10, :class => "span6" } %>
 <%= f.file_field :picturepart %>
-<p>
-    <label>
-      <%= f.check_box :remove_avatar %>
-      Remove avatar
-    </label>
-  </p>
+
 <%= f.button :submit, label: "Add Parts", :class => 'btn-custom' %>
 <% end %>
 
