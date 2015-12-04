@@ -3,5 +3,10 @@
 <%= f.input :contentparttitle, label: "Title" %>
 <%= f.input :contentpart, label: "Content Part", :as => :text, :input_html => { 'rows' => 10} %>
 <%= f.file_field :picturepart %>
-<%= f.button :submit %>
+<%= f.hidden_field :picturepart_cache %>
+
+
+
+
+ <%= f.button :submit %>
 <% end %>
