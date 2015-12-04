@@ -4,12 +4,13 @@
     <hr/>
   </div>
 </div>
-
+<%= image_tag(@avatar, size: "250x150", class: "gravatar")  %>
 
 
  <h2><%= @speaker.name %><%= @speaker.lastname %>
   <%= link_to "Subscribe to this Speaker", subscribe_speaker_path(@speaker), class: "btn btn-default btn-xs" %>
   <p>
+
 
   <% @messages.each do |m| %>
   <h4><%= link_to m.title, message_path(m) %></h4>
