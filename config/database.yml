@@ -10,16 +10,34 @@ default: &default
   timeout: 5000
 
 development:
-  <<: *default
-  database: db/development.sqlite3
+  adapter: postgresql
+  database: myapp_dev
+  encoding: utf8
+  host: localhost
+  username: somedevusername
+  password: somepassword
+  # <<: *default
+  # database: db/development.sqlite3
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  <<: *default
-  database: db/test.sqlite3
+
+  adapter: postgresql
+  database: myapp_test
+  encoding: utf8
+  host: localhost
+  username: somedevusername
+  password: somepassword
+
+  # <<: *default
+  # database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  url: <%= ENV['DATABASE_URL'] %> #This is the environment variable created by our Dokku command earlier
+  encoding: unicode
+  pool: 5
+  # <<: *default
+  # database: db/production.sqlite3
