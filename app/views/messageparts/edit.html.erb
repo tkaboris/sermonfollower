@@ -6,7 +6,12 @@
 <%= f.hidden_field :picturepart_cache %>
 
 
-
+<p>
+    <label>
+      <%= f.check_box :remove_picturepart %>
+      Remove picture
+    </label>
+  </p>
 
  <%= f.button :submit %>
 <% end %>

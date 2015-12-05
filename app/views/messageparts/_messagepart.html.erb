@@ -6,6 +6,8 @@
       <%= image_tag(messagepart.picturepart.url, size: "250x150", class: "gravatar") if @message.picture? %>
     </p>
 
+
+
     <div class="links">
       <% if speaker_signed_in? %>
         <% if messagepart.speaker_id == current_speaker.id %>
