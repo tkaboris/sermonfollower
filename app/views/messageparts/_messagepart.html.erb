@@ -2,8 +2,7 @@
   <p class="comment-content"><%= messagepart.contentparttitle %></p>
   <p class="comment-content"><%= messagepart.contentpart %></p>
     <p>
-
-      <%= image_tag(messagepart.picturepart.url, size: "250x150", class: "gravatar") if @message.picture? %>
+    <%= image_tag(messagepart.picturepart.url, size: "250x150", class: "gravatar") if messagepart.picturepart? %>
     </p>
 
     <div class="links">
