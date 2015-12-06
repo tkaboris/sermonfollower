@@ -1,12 +1,23 @@
+<script type="text/javascript">
+  var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+  };
+</script>
+
 <h1>Edit Content Part</h1>
 <%= simple_form_for([@message, @messagepart], html: { multipart: true } ) do |f| %>
 <%= f.input :contentparttitle, label: "Title" %>
 <%= f.input :contentpart, label: "Content Part", :as => :text, :input_html => { 'rows' => 10} %>
-<%= f.file_field :picturepart %>
+<%= f.file_field :picturepart, onchange: "loadFile(event)" %>
 <%= f.hidden_field :picturepart_cache %>
 
-
-
+Preview Image
+<img id="output" height="150" width="250" alt="Image Preview" style="margin-bottom: 10px; margin-top: 15px;"/><br>
 
  <%= f.button :submit %>
+<% end %>
+<% if @messagepart.picturepart_url %>
+<%= image_tag @messagepart.picturepart_url, size: "250x150" %>
+<%= link_to "delete Image", "/messagepart/delete/"+@messagepart.id.to_s %>
 <% end %>

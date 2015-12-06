@@ -1,2 +1,14 @@
+<script type="text/javascript">
+  var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+  };
+</script>
+
 <h1>Edit Message</h1>
 <%= render 'form' %>
+
+<% if @message.picture_url %>
+Current Image
+	<%= image_tag @message.picture_url, width: "250", height: "150" %>
+<% end %>
