@@ -1,5 +1,7 @@
 <script type="text/javascript">
   var loadFile = function(event) {
+    var elms = document.getElementById("image");
+    image.innerHTML = "<div id='image'> Preview Image <img id='output' height='150' width='250' alt='Image Preview' style='margin-bottom: 10px; margin-top: 15px;'/><br>"
     var output = document.getElementById('output');
     output.src = URL.createObjectURL(event.target.files[0]);
   };
@@ -13,11 +15,10 @@
     <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
     <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
     <% end %>
+  <%= f.file_field :picture, onchange: "loadFile(event)" %>
 
-  <%= f.file_field :picture %>
-  Preview Image
+  <div id="image"></div>
 
-<img id="output" height="150" width="250" alt="Image Preview" style="margin-bottom: 10px; margin-top: 15px;"/><br>
   <%= f.button :submit %>
 
 <% end %>
