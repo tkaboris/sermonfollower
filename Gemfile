@@ -32,6 +32,8 @@ gem 'sinatra', :require => nil
 #this is manage env vars
 gem 'figaro'
 
+gem 'puma'
+
 #dependency for datetimepicker-rails
 gem 'momentjs-rails', '~> 2.9', :github => 'derekprior/momentjs-rails'
 # A date and time picker for Twitter Bootstrap in Rails using Simple Form
