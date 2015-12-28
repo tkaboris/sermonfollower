@@ -28,8 +28,6 @@ class MessagepartsController < ApplicationController
       render 'edit'
     end
 
-
-
   end
 
   def destroy
